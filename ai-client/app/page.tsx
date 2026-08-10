@@ -105,7 +105,7 @@ export default function Home() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/chat?language=${encodeURIComponent(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/chat?language=${encodeURIComponent(
           language
         )}&web=${webEnabled}`,
         {
@@ -279,7 +279,7 @@ export default function Home() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/image",
+        `${process.env.NEXT_PUBLIC_API_URL}/api/image`,
         {
           method: "POST",
 
@@ -510,9 +510,9 @@ export default function Home() {
                             )
                           }
                           className={`rounded-full border px-4 py-2 text-sm transition ${language ===
-                              item
-                              ? "border-zinc-900 bg-zinc-900 text-white"
-                              : "border-zinc-200 bg-white text-zinc-600 hover:bg-zinc-50"
+                            item
+                            ? "border-zinc-900 bg-zinc-900 text-white"
+                            : "border-zinc-200 bg-white text-zinc-600 hover:bg-zinc-50"
                             }`}
                         >
                           {item}
@@ -533,9 +533,9 @@ export default function Home() {
                   <div
                     key={item.id}
                     className={`flex ${item.role ===
-                        "user"
-                        ? "justify-end"
-                        : "justify-start"
+                      "user"
+                      ? "justify-end"
+                      : "justify-start"
                       }`}
                   >
 
@@ -592,9 +592,9 @@ export default function Home() {
 
                         <div
                           className={`whitespace-pre-wrap text-[15px] leading-7 ${item.role ===
-                              "user"
-                              ? "text-white"
-                              : "text-zinc-800"
+                            "user"
+                            ? "text-white"
+                            : "text-zinc-800"
                             }`}
                         >
                           {item.content}
@@ -720,10 +720,10 @@ export default function Home() {
                   }}
                   disabled={loading}
                   className={`rounded-lg px-3 py-2 text-sm font-medium transition ${mode ===
-                      "translate" &&
-                      !imageMode
-                      ? "bg-zinc-950 text-white"
-                      : "border border-zinc-200 text-zinc-600 hover:bg-zinc-50"
+                    "translate" &&
+                    !imageMode
+                    ? "bg-zinc-950 text-white"
+                    : "border border-zinc-200 text-zinc-600 hover:bg-zinc-50"
                     }`}
                 >
                   Translate
@@ -742,10 +742,10 @@ export default function Home() {
                   }}
                   disabled={loading}
                   className={`rounded-lg px-3 py-2 text-sm font-medium transition ${mode ===
-                      "correct" &&
-                      !imageMode
-                      ? "bg-zinc-950 text-white"
-                      : "border border-zinc-200 text-zinc-600 hover:bg-zinc-50"
+                    "correct" &&
+                    !imageMode
+                    ? "bg-zinc-950 text-white"
+                    : "border border-zinc-200 text-zinc-600 hover:bg-zinc-50"
                     }`}
                 >
                   ✨ Correct
@@ -764,10 +764,10 @@ export default function Home() {
                   }}
                   disabled={loading}
                   className={`rounded-lg px-3 py-2 text-sm font-medium transition ${mode ===
-                      "correct-translate" &&
-                      !imageMode
-                      ? "bg-zinc-950 text-white"
-                      : "border border-zinc-200 text-zinc-600 hover:bg-zinc-50"
+                    "correct-translate" &&
+                    !imageMode
+                    ? "bg-zinc-950 text-white"
+                    : "border border-zinc-200 text-zinc-600 hover:bg-zinc-50"
                     }`}
                 >
                   Correct + Translate
@@ -784,8 +784,8 @@ export default function Home() {
                   }
                   disabled={loading}
                   className={`rounded-lg px-3 py-2 text-sm font-medium transition ${webEnabled
-                      ? "bg-emerald-600 text-white"
-                      : "border border-zinc-200 text-zinc-600 hover:bg-zinc-50"
+                    ? "bg-emerald-600 text-white"
+                    : "border border-zinc-200 text-zinc-600 hover:bg-zinc-50"
                     }`}
                 >
                   🌐 Web
@@ -802,8 +802,8 @@ export default function Home() {
                   }
                   disabled={loading}
                   className={`rounded-lg px-3 py-2 text-sm font-medium transition ${imageMode
-                      ? "bg-purple-600 text-white"
-                      : "border border-zinc-200 text-zinc-600 hover:bg-zinc-50"
+                    ? "bg-purple-600 text-white"
+                    : "border border-zinc-200 text-zinc-600 hover:bg-zinc-50"
                     }`}
                 >
                   🎨 Image
